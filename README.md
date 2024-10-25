@@ -114,12 +114,9 @@ SELECT DISTINCT nome_do_filme FROM indicados_ao_oscar WHERE categoria IN ('BEST 
 R: Não.
 Q:
 ```sql
-SELECT COUNT(*) > 0 AS indicados_na_mesma_cerimonia
-FROM (
-    SELECT ano_cerimonia
-    FROM indicados_ao_oscar
-    WHERE nome_do_indicado IN ('Denzel Washington', 'Jamie Foxx')
-    GROUP BY ano_cerimonia
-    HAVING COUNT(DISTINCT nome_do_indicado) = 2
-) AS cerimonias_com_ambos;
+SELECT COUNT(*) > 0
+FROM indicados_ao_oscar 
+WHERE nome_do_indicado IN ('Denzel Washington','Jamie Foxx') 
+GROUP BY ano_cerimonia
+HAVING COUNT(*) = 2;
 ```
