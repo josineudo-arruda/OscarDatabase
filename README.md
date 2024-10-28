@@ -130,14 +130,15 @@ WHERE vencedor = 1
 
 * Bonus: Denzel Washington e Jamie Foxx já concorreram ao Oscar no mesmo ano?
 
-R: Sim.
+R: Não.
 
 Q:
 
 ```sql
 SELECT COUNT(*) > 0
-FROM indicados_ao_oscar 
-WHERE nome_do_indicado IN ('Denzel Washington','Jamie Foxx') 
-GROUP BY ano_cerimonia
-HAVING COUNT(*) = 2;
+FROM indicados_ao_oscar AS a
+JOIN indicados_ao_oscar AS b 
+  ON a.ano_cerimonia = b.ano_cerimonia
+WHERE a.nome_do_indicado = 'Denzel Washington' 
+  AND b.nome_do_indicado = 'Jamie Foxx';
 ```
