@@ -121,7 +121,9 @@ WHERE vencedor = 1
 * Bonus: Denzel Washington e Jamie Foxx já concorreram ao Oscar no mesmo ano?
 
 R: Sim.
+
 Q:
+
 ```sql
 SELECT COUNT(*) > 0
 FROM indicados_ao_oscar 
